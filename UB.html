@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallerie 1er etage</title>
+    <link rel="stylesheet" href="UB.css">
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="gallery">
+            <div class="image"><span> <img src="../../image/UB/UB1.jpg" alt=""> </span></div>
+            <div class="image"><span> <img src="../../image/UB/UB2.jpg" alt=""> </span></div>
+            <div class="image"><span> <img src="../../image/UB/UB3.jpg" alt=""> </span></div>
+            <div class="image"><span> <img src="../../image/UB/UB4.jpg" alt=""> </span></div>
+            <div class="image"><span> <img src="../../image/UB/UB5.jpg" alt=""> </span></div>
+            <div class="image"><span> <img src="../../image/UB/UB6.jpg" alt=""> </span></div>
+            <div class="image"><span> <img src="../../image/UB/UB7.jpg" alt=""> </span></div>
+            <div class="image"><span> <img src="../../image/UB/UB8.jpg" alt=""> </span></div>
+            <div class="image"><span> <img src="../../image/UB/UB9.jpg" alt=""> </span></div>
+            <div class="image"><span> <img src="../../image/UB/UB10.jpg" alt=""> </span></div>
+            <div class="image"><span> <img src="../../image/UB/UB11.jpg" alt=""> </span></div>
+            <div class="image"><span> <img src="../../image/UB/UB12.jpg" alt=""> </span></div>
+        </div>
+    </div>
+    <div class="preview-box">
+        <div class="details">
+            <span class="title">
+                Image <p class="current-img">3</p>
+                of <p class="total-img">6</p>
+            </span>
+            <span class="icon fas fa-times"></span>
+        </div>
+        <div class="img-box">
+            <div class="slide prev">
+                <i class="fas fa-angle-left"></i>
+            </div>
+            <div class="slide next">
+                <i class="fas fa-angle-right"></i>
+            </div>
+            <img src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        const gallery = document.querySelectorAll(".gallery .image"),
+        previewBox = document.querySelector(".preview-box"),
+        previewImg = previewBox.querySelector("img"),
+        closeIcon = previewBox.querySelector(".icon");
+
+        window.onload = ()=>{ 
+            for (let i = 0; i < gallery.length; i++){
+                let newIndex = i; 
+                let clickImgIndex;
+                gallery[i].onclick = ()=>{
+                    clickImgIndex = newIndex;
+                    //click sur l'image
+                    function preview(){
+                        let selectedImgURL = gallery[newIndex].querySelector("img").src;
+                        previewImg.src = selectedImgURL;
+                    }
+                    //Les deux boutons
+                    const prevBtn = document.querySelector(".prev");
+                    const nextBtn = document.querySelector(".next");
+                    if(newIndex == 0){
+                        prevBtn.style.display = "none";
+                    }
+                    
+                    if(newIndex >= gallery.length - 1){
+                     nextBtn.style.display = "none";
+                    }
+                    //reculer d'une image
+                    prevBtn.onclick = ()=>{
+                        newIndex--; //decrementer le valeur 
+                        if(newIndex == 0){
+                            preview();
+                            prevBtn.style.display = "none";
+                        }else{
+                            preview(); //appel a la fonction avec la nouvelle valeur
+                            nextBtn.style.display = "block";
+                        } 
+                    }
+                    nextBtn.onclick = ()=>{
+                        newIndex++; //incrementer le valeur 
+                        if(newIndex >= gallery.length - 1){
+                            preview();
+                            nextBtn.style.display = "none";
+                        }else{
+                            preview(); //appel a la fonction avec la nouvelle valeur
+                            prevBtn.style.display = "block";
+                        }
+                    }
+                    
+                    preview();//l'appel de la fonction
+                    previewBox.classList.add("show");
+
+                    closeIcon.onclick = ()=>{
+                        newIndex = clickImgIndex ; // affecter la premiere click a newIndex
+                        prevBtn.style.display = "block";
+                        nextBtn.style.display = "block";
+                        previewBox.classList.remove("show");
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

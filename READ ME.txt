@@ -1,0 +1,87 @@
+Index.html: Acceuil Adhérants;
+    	
+
+Home.php: Acceuil visiteurs;
+    	
+
+coach.html: Page des coaches;
+	
+	
+hour.html: Page des horaires;
+	
+
+UB.html: Gallerie salle 1er étage;
+	
+
+CF.html: Gallerie salle 2eme étage;
+	
+
+Choice.html: Page des tarifs et choix entre normal et étudiant;
+	
+
+form.html: Formulaire d'inscription normal;
+	
+
+Etudiant.html: Formulaire d'inscription étudiants;
+	
+
+signUp.html: Page d'inscription;
+	
+
+oops.html: Page d'erreur lors de l'inscription;
+	
+
+Thankyou.html: Page de validation de l'inscription;
+	
+
+Login.php: Page de connection;
+	
+
+oops2.html: Page d'erreur lors de la connection;
+	
+
+Profil.php: Profil adhérant;
+
+
+admin.html: acceuil administrateur;
+
+
+gestion.php: consulter/modifier/supprimer les comptes.
+
+
+data.php: consulter/modifier/supprimer les information relatives au adhérants;
+	
+
+code.html: consulter le codesource du site a partir du Github;
+
+
+ED.php: modification d'un compte;
+
+
+ED1.php: code php Fetch and Edit necessaire a la modification;
+
+
+EDdata.php: modification des données d'un client normal;
+
+
+EDdata1.php: code php necessaire a la modification;
+
+
+EDetu.php: modification des données d'un client etudiant;
+
+
+EDetu1.php: code php necessaire a la modification;
+
+
+SUP.php: suppression d'un compte;
+
+
+SUPdata.php: suppression des données d'un client normal;
+
+
+SUPetu.php: suppression des données d'un client etudiant;
+
+
+
+
+

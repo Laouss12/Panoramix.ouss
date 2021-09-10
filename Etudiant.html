@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regestration Form</title>
+    <link rel="stylesheet" href="Etudiant.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+
+        <div class="back">
+            <a href="../Choice.html" class="back-btn"><i class="fa fa-arrow-left"></i></a>
+        </div>
+    <div class="wrapper">
+        <div class="title">
+            Registration Form
+        </div>
+        <div class="form">
+            <form action="infoEtudiant.php" method="POST">
+                <div class="input_field">
+                    <label for="">Nom et prenom</label>
+                    <input type="text" name="nom" class="input" required>
+                </div>
+                <div class="input_field">
+                    <label for="">Date de naissance</label>
+                    <input type="date" name="date" class="input" required>
+                </div>
+                <div class="input_field">
+                    <label for="">Gender</label>
+                <div class="custom_select">
+                    <select name="sexe" class="hero-btn">
+                        <option selected hidden value="">Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        </select>
+                </div>
+                </div>
+                <div class="input_field">
+                    <label for="">Email Adress</label> 
+                    <input type="text" name="email" class="input" required>
+                </div>
+                <div class="input_field">
+                    <label for="">Phone number</label> 
+                    <input type="text" name="num" class="input">
+                </div>
+                <div class="input_field">
+                    <label for="">Certificat de scolarite:</label>
+                    <div class="hei"> 
+                        <span class="hero-btn">Choisir un fichier</span>
+                        <input type="file" name="cer" hidden> 
+                    </div>
+                </div>
+                    <div class="input_field">
+                        <input type="submit" value="Creer_compte" class="hero-btn" class="btn"> 
+                    </div>
+                </div> 
+            </form> 
+        </div>
+        <div class="bass">
+            <a href="../../Index.html" class="back-btn">Acceuil</i></a>
+        </div>   
+    <script>
+        const dropArea = document.querySelector(".hei"),
+        button = dropArea.querySelector("span"),
+        input = dropArea.querySelector("input");
+
+        let file;
+
+        button.onclick = ()=>{
+            input.click(); //click sur button est click sur input 
+        }
+
+        input.addEventListener("change", function(){
+            file = this.files[0]; //si choisir plusieurs fichers on prend le premier
+            showFile(); //l'appel a la fonction
+            dropArea.classList.add("active");
+        });
+
+        function showFile(){
+            let fileType = file.type;
+            let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
+            if(validExtensions.includes(fileType)){
+                let fileReader = new FileReader();
+                fileReader.onload = ()=>{
+                    let fileURL = fileReader.result;
+                    let imgTag = `<img src="$(fileURL)" alt='votre certificat est bien enregistré. Cliquez sur "Creer_compte" pour poursuivre' style=" color:#d3d9dd; height: 100%; width: 100%;">`;
+                    dropArea.innerHTML = imgTag;
+                }
+                fileReader.readAsDataURL(file);
+            }else{
+                alert("SVP selectionnez un fichier image.");
+                dropArea.classList.remove("active");
+            }
+        }
+    </script>
+</body>
+</html>

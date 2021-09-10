@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regestration Form</title>
+    <link rel="stylesheet" href="../Inscription/creer_compte/signUp.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="back">
+        <a href="../Inscription/Choice.html" class="back-btn"><i class="fa fa-arrow-left"></i></a>
+    </div>
+    <div class="bass">
+        <a href="../Index.html" class="back-btn">Acceuil</i></a>
+        <a href="../Inscription/Choice.html" class="back-btn">S'inscrire</i></a>
+    </div>
+    
+    <div class="wrapper">
+        <div class="form">
+
+            <div class="title">
+                Connectez-vous
+            </div>
+            <form action="php/Validation.php" method="post">
+                <div class="input_field">
+                    <label for="">Nom d'utilisateur</label> 
+                    <input type="text" name="user" class="input" required>
+                </div>
+                <div class="input_field">
+                    <label for="">Mot de passe</label> 
+                    <input type="password" name="password" class="input" required>
+                </div>
+                <div class="input_field">
+                    <button class="hero-btn" class="btn">Se connecter</button>
+                </div>
+            </form>
+        </div> 
+        
+    </div>  
+</body>
+</html>
